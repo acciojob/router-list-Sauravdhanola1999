@@ -1,36 +1,16 @@
-import React, { useState, useEffect } from "react";
-import "./../styles/App.css";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Userdetail from "./Userdetail";
-import Users from "./Users";
+import ItemList from "./ItemList";
+import ItemDetail from "./ItemDetail";
 
-const App = () => {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((resp) => resp.json())
-      .then((data) => {
-        setUsers(data);
-        setLoading(false);
-      });
-  }, []);
-
+export default function App() {
   return (
-    <div>
-      <Router>
-        {loading ? (
-          <h1>Loading...</h1>
-        ) : (
-          <Routes>
-            <Route path="/" element={<Userdetail users={users} />} />
-            <Route path="/users/:id" element={<Users users={users} />} />
-          </Routes>
-        )}
-      </Router>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<ItemList />} />
+        <Route path="/items/:id" element={<ItemDetail />} />
+      </Routes>
+    </Router>
   );
-};
-
-export default App;
+}
