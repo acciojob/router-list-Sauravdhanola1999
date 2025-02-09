@@ -1,5 +1,6 @@
 import React from "react";
-import { NavLink} from "react-router-dom";
+import { NavLink, Route } from "react-router-dom";
+import Users from "./Users";
 
 function UserDetails({ users }) {
   // const user = users.find(u => u.id === parseInt(users.id, 10));

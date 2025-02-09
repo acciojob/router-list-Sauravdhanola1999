@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 function Users({ users }) {
   const { id } = useParams();
-  const itemId = parseInt(id, 10); 
+  const itemId = parseInt(id, 10); // Parse the ID as an integer
   const selectedItem = users.find((user) => user.id === itemId);
 
   if (!selectedItem) {
@@ -20,6 +20,7 @@ function Users({ users }) {
       <p><b>Website:</b> {selectedItem.website}</p>
       {/* <p><b>Website:</b> {selectedItem.website}</p> */}
 
+      
     </div>
   );
 }

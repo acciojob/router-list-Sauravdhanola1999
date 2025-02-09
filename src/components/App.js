@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./../styles/App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import UserDetails from "./UserDetails";
 import Users from "./Users";
-import UserDetails from "./Userdetail";
 
 const App = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
 
-
+  // Fetch data when the component mounts for the first time
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((resp) => resp.json())
